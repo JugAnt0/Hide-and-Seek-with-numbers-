@@ -1,0 +1,32 @@
+import random
+
+def hide_and_seek():
+    print("🎯 Welcome to Hide and Seek (Digital Version)!")
+    print("I am hiding a number between 1 and 20... Can you find it?")
+    
+    
+    hidden_number = random.randint(1, 20)
+    attempts = 0
+    
+    while True:
+        try:
+            guess = int(input("Enter your guess (1-20): "))
+            attempts += 1
+
+            if guess < 1 or guess > 20:
+                print("⚠️ Please choose a number between 1 and 20.")
+            elif guess < hidden_number:
+                print("📉 Too low! Try again.")
+            elif guess > hidden_number:
+                print("📈 Too high! Try again.")
+            else:
+                print(f"🎉 You found it! The number was {hidden_number}.")
+                print(f"🏆 It took you {attempts} attempts.")
+                break
+        except ValueError:
+            print("⚠️ Please enter a valid number.")
+
+
+
+
+hide_and_seek()
